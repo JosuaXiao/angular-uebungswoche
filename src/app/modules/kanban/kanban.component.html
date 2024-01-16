@@ -10,30 +10,35 @@
     <tr>
       <td>
         @for ( item of items ; track $index ) {
-        <ng-container *ngIf="item.status === KanbanState.New"
-          >{{ item.Description }} <br
-        /></ng-container>
+        <pit-kanban-item [item]="item" *ngIf="item.status === KanbanState.New">
+        </pit-kanban-item>
         } @empty { Hier ist nix }
       </td>
       <td>
         @for ( item of items ; track $index ) {
-        <ng-container *ngIf="item.status === KanbanState.Active"
-          >{{ item.Description }} <br
-        /></ng-container>
+        <pit-kanban-item
+          [item]="item"
+          *ngIf="item.status === KanbanState.Active"
+        >
+        </pit-kanban-item>
         } @empty { Hier ist nix }
       </td>
       <td>
         @for( item of items$| async; track item.id){
-        <ng-container *ngIf="item.status === KanbanState.InTest"
-          >{{ item.Description }} <br
-        /></ng-container>
+        <pit-kanban-item
+          [item]="item"
+          *ngIf="item.status === KanbanState.InTest"
+        >
+        </pit-kanban-item>
         } @empty { Hier ist nix }
       </td>
       <td>
         @for ( item of items ; track $index ) {
-        <ng-container *ngIf="item.status === KanbanState.Closed"
-          >{{ item.Description }} <br
-        /></ng-container>
+        <pit-kanban-item
+          [item]="item"
+          *ngIf="item.status === KanbanState.Closed"
+        >
+        </pit-kanban-item>
         } @empty { Hier ist nix }
       </td>
     </tr>
