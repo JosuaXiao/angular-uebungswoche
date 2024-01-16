@@ -1,148 +1,175 @@
 {
   "Benutzer": [
-    { "id": "1", "firstname": "David", "lastname": "Scheitacker" },
-    { "id": "2", "firstname": "Yunfan", "lastname": "Scheitacker" },
-    { "id": "3", "firstname": "Florian", "lastname": "Scheitacker" },
-    { "id": "4", "firstname": "Buben", "lastname": "Stenzel" },
-    { "id": "5", "firstname": "Fluben", "lastname": "Frenzel" }
+    {
+      "id": "1",
+      "firstname": "David",
+      "lastname": "Scheitacker"
+    },
+    {
+      "id": "2",
+      "firstname": "Yunfan",
+      "lastname": "Scheitacker"
+    },
+    {
+      "id": "3",
+      "firstname": "Florian",
+      "lastname": "Scheitacker"
+    },
+    {
+      "id": "4",
+      "firstname": "Buben",
+      "lastname": "Stenzel"
+    },
+    {
+      "id": "5",
+      "firstname": "Fluben",
+      "lastname": "Frenzel"
+    }
   ],
   "Task": [
-    [
-      {
-        "id": 1,
-        "Title": "The Paris Express",
-        "Description": "Implement backend API",
-        "2beDone": "31/3/2023",
-        "assigned": "David",
-        "prio": "low",
-        "status": "InTest"
-      },
-      {
-        "id": 2,
-        "Title": "Tim's Vermeer",
-        "Description": "Write unit tests",
-        "2beDone": "14/10/2023",
-        "assigned": "David",
-        "prio": "high",
-        "status": "New"
-      },
-      {
-        "id": 3,
-        "Title": "Zombie Island Massacre",
-        "Description": "Refactor code for performance",
-        "2beDone": "14/11/2023",
-        "assigned": "David",
-        "prio": "medium",
-        "status": "Closed"
-      },
-      {
-        "id": 4,
-        "Title": "Jackass 3D",
-        "Description": "Design UI for homepage",
-        "2beDone": "19/4/2023",
-        "assigned": "Yunfan",
-        "prio": "low",
-        "status": "Active"
-      },
-      {
-        "id": 5,
-        "Title": "Still Alice",
-        "Description": "Refactor code for performance",
-        "2beDone": "8/4/2023",
-        "assigned": "Yunfan",
-        "prio": "medium",
-        "status": "InTest"
-      },
-      {
-        "id": 6,
-        "Title": "Daughters of Darkness (Les lèvres rouges)",
-        "Description": "Fix bug in authentication module",
-        "2beDone": "3/1/2024",
-        "assigned": "Yunfan",
-        "prio": "low",
-        "status": "Closed"
-      },
-      {
-        "id": 7,
-        "Title": "Adventures in Zambezia",
-        "Description": "Fix bug in authentication module",
-        "2beDone": "17/5/2023",
-        "assigned": "Florian",
-        "prio": "high",
-        "status": "InTest"
-      },
-      {
-        "id": 8,
-        "Title": "Sometime in August (Mitte Ende August)",
-        "Description": "Implement backend API",
-        "2beDone": "5/7/2023",
-        "assigned": "Florian",
-        "prio": "low",
-        "status": "New"
-      },
-      {
-        "id": 9,
-        "Title": "Bad Words",
-        "Description": "Fix bug in authentication module",
-        "2beDone": "25/8/2023",
-        "assigned": "Florian",
-        "prio": "high",
-        "status": "InTest"
-      },
-      {
-        "id": 10,
-        "Title": "Antonia's Line (Antonia)",
-        "Description": "Implement backend API",
-        "2beDone": "29/7/2023",
-        "assigned": "Buben",
-        "prio": "low",
-        "status": "Active"
-      },
-      {
-        "id": 11,
-        "Title": "Viy",
-        "Description": "Write unit tests",
-        "2beDone": "13/4/2023",
-        "assigned": "Buben",
-        "prio": "medium",
-        "status": "New"
-      },
-      {
-        "id": 12,
-        "Title": "Artemisia",
-        "Description": "Design UI for homepage",
-        "2beDone": "2/5/2023",
-        "assigned": "Buben",
-        "prio": "high",
-        "status": "New"
-      },
-      {
-        "id": 13,
-        "Title": "Heaven's Prisoners",
-        "Description": "Design UI for homepage",
-        "2beDone": "14/9/2023",
-        "assigned": "Fluben",
-        "prio": "medium",
-        "status": "Active"
-      },
-      {
-        "id": 14,
-        "Title": "Dutch",
-        "Description": "Implement backend API",
-        "2beDone": "20/8/2023",
-        "assigned": "Fluben",
-        "prio": "medium",
-        "status": "InTest"
-      },
-      {
-        "id": 15,
-        "Title": "Collision: Christopher Hitchens vs. Douglas Wilson",
-        "Description": "Design UI for homepage",
-        "2beDone": "18/3/2023",
-        "assigned": "Fluben",
-        "prio": "high",
-        "status": "Active"
-      }
-    ]
+    {
+      "id": "1",
+      "Title": "The Paris Express",
+      "Description": "Implement backend API",
+      "2beDone": "31/3/2023",
+      "assigned": "David",
+      "prio": "low",
+      "status": "InTest"
+    },
+    {
+      "id": "2",
+      "Title": "Tim's Vermeer",
+      "Description": "Write unit tests",
+      "2beDone": "14/10/2023",
+      "assigned": "David",
+      "prio": "high",
+      "status": "New"
+    },
+    {
+      "id": "3",
+      "Title": "Zombie Island Massacre",
+      "Description": "Refactor code for performance",
+      "2beDone": "14/11/2023",
+      "assigned": "David",
+      "prio": "medium",
+      "status": "Closed"
+    },
+    {
+      "id": "4",
+      "Title": "Jackass 3D",
+      "Description": "Design UI for homepage",
+      "2beDone": "19/4/2023",
+      "assigned": "Yunfan",
+      "prio": "low",
+      "status": "Active"
+    },
+    {
+      "id": "5",
+      "Title": "Still Alice",
+      "Description": "Refactor code for performance",
+      "2beDone": "8/4/2023",
+      "assigned": "Yunfan",
+      "prio": "medium",
+      "status": "InTest"
+    },
+    {
+      "id": "6",
+      "Title": "Daughters of Darkness (Les lèvres rouges)",
+      "Description": "Fix bug in authentication module",
+      "2beDone": "3/1/2024",
+      "assigned": "Yunfan",
+      "prio": "low",
+      "status": "Closed"
+    },
+    {
+      "id": "7",
+      "Title": "Adventures in Zambezia",
+      "Description": "Fix bug in authentication module",
+      "2beDone": "17/5/2023",
+      "assigned": "Florian",
+      "prio": "high",
+      "status": "InTest"
+    },
+    {
+      "id": "8",
+      "Title": "Sometime in August (Mitte Ende August)",
+      "Description": "Implement backend API",
+      "2beDone": "5/7/2023",
+      "assigned": "Florian",
+      "prio": "low",
+      "status": "New"
+    },
+    {
+      "id": "9",
+      "Title": "Bad Words",
+      "Description": "Fix bug in authentication module",
+      "2beDone": "25/8/2023",
+      "assigned": "Florian",
+      "prio": "high",
+      "status": "InTest"
+    },
+    {
+      "id": "10",
+      "Title": "Antonia's Line (Antonia)",
+      "Description": "Implement backend API",
+      "2beDone": "29/7/2023",
+      "assigned": "Buben",
+      "prio": "low",
+      "status": "Active"
+    },
+    {
+      "id": "11",
+      "Title": "Viy",
+      "Description": "Write unit tests",
+      "2beDone": "13/4/2023",
+      "assigned": "Buben",
+      "prio": "medium",
+      "status": "New"
+    },
+    {
+      "id": "12",
+      "Title": "Artemisia",
+      "Description": "Design UI for homepage",
+      "2beDone": "2/5/2023",
+      "assigned": "Buben",
+      "prio": "high",
+      "status": "New"
+    },
+    {
+      "id": "13",
+      "Title": "Heaven's Prisoners",
+      "Description": "Design UI for homepage",
+      "2beDone": "14/9/2023",
+      "assigned": "Fluben",
+      "prio": "medium",
+      "status": "Active"
+    },
+    {
+      "id": "14",
+      "Title": "Dutch",
+      "Description": "Implement backend API",
+      "2beDone": "20/8/2023",
+      "assigned": "Fluben",
+      "prio": "medium",
+      "status": "InTest"
+    },
+    {
+      "id": "15",
+      "Title": "Collision: Christopher Hitchens vs. Douglas Wilson",
+      "Description": "Design UI for homepage",
+      "2beDone": "18/3/2023",
+      "assigned": "Fluben",
+      "prio": "high",
+      "status": "Active"
+    },
+    {
+      "id": "e707"
+    },
+    {
+      "id": "87b3"
+    },
+    {
+      "id": "c3fa"
+    }
   ]
 }

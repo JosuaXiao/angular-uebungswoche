@@ -17,7 +17,7 @@ export class UserService {
 
   readonly allFirstnames = computed(() => this.users().map((u) => u.firstname));
 
-  readonly allLastnames = computed(() => this.users().map((u) => u.firstname));
+  readonly allLastnames = computed(() => this.users().map((u) => u.lastname));
 
   readonly selectedIndex = signal(-1);
 

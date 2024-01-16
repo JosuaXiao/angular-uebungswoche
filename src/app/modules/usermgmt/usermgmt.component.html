@@ -1,1 +1,11 @@
-<p>usermgmt works!</p>
+@for ( name of $user.allFirstnames(); track $index ) {
+<div (click)="$user.setAsSelected($index)">
+  <button (click)="$user.delUserAt($index)">-</button>
+  <button (click)="$user.delUser($user.users()[$index])">x</button>
+  {{ name }}
+</div>
+} @for ( name of $user.allLastnames(); track $index ) {
+<div (click)="$user.setAsSelected($index)">
+  {{ name }}
+</div>
+}

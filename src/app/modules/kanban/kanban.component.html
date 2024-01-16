@@ -7,6 +7,12 @@
       <th>InTest</th>
       <th>Closed</th>
     </tr>
-    <div id="lager"></div>
+    <div id="lager">
+      @for ( title of $data.allTitles(); track $index ) {
+      <div (click)="$data.setAsSelected($index)">
+        {{ title }}
+      </div>
+      }
+    </div>
   </table>
 </body>
