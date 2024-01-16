@@ -1,20 +1,8 @@
-import {
-  Component,
-  AfterContentInit,
-  AfterViewInit,
-  ElementRef,
-  inject,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-  OnDestroy,
-} from '@angular/core';
-import { UserService } from '../../user/user.service';
-import { DataService } from '../../data/data.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FlosKanbanService } from '../../services/flos-kanban.service';
-import { KanbanItem } from '../../data/data';
+import { KanbanItem } from '../../services/KanbanItem';
 import { Subject, takeUntil } from 'rxjs';
+import { KanbanState } from '../../services/kanban-state';
 
 @Component({
   selector: 'pit-kanban',
@@ -22,14 +10,24 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './kanban.component.scss',
 })
 export class KanbanComponent implements OnInit, OnDestroy {
-  readonly $data: DataService = inject(DataService);
+  items$ = this.kanbanService.get();
 
   items: KanbanItem[] = [];
+
+  KanbanState = KanbanState;
 
   #ngUnsubscribe = new Subject<void>();
 
   constructor(private kanbanService: FlosKanbanService) {}
 
+  show(status: string, column: string): boolean {
+    console.log('hallo');
+    if (status === column) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   ngOnInit(): void {
     this.kanbanService
       .get()
@@ -40,10 +38,9 @@ export class KanbanComponent implements OnInit, OnDestroy {
           console.log(this.items);
         },
       });
-
-    setTimeout(() => {
-      this.kanbanService.add({} as KanbanItem);
-    }, 1000);
+    // setTimeout(() => {
+    //   this.kanbanService.add({} as KanbanItem);
+    // }, 1000);
   }
 
   ngOnDestroy(): void {

@@ -59,7 +59,7 @@ export abstract class FlosDataService<T extends { id: number }>
       .delete<T>(url, this.#httpOptions)
       .pipe(takeUntil(this.#ngUnsubscribe))
       .subscribe({
-        next: (value) => {
+        next: () => {
           this.#cache.next([
             ...this.#cache.value.filter((item) => item.id !== id),
           ]);

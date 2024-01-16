@@ -1,3 +1,5 @@
+import { KanbanState } from './kanban-state';
+
 export interface KanbanItem {
   id: number;
   Title: string;
@@ -5,5 +7,5 @@ export interface KanbanItem {
   tobeDone?: Date;
   assigned: string;
   prio: string;
-  status: string;
+  status: KanbanState;
 }

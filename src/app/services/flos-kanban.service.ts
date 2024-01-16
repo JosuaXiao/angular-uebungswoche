@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FlosDataService } from './flos-data.service';
-import { KanbanItem } from '../data/data';
+import { KanbanItem } from './KanbanItem';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

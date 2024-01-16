@@ -7,12 +7,35 @@
       <th>InTest</th>
       <th>Closed</th>
     </tr>
-    <div id="lager">
-      @for ( title of $data.allTitles(); track $index ) {
-      <div (click)="$data.setAsSelected($index)">
-        {{ title }}
-      </div>
-      }
-    </div>
+    <tr>
+      <td>
+        @for ( item of items ; track $index ) {
+        <ng-container *ngIf="item.status === KanbanState.New"
+          >{{ item.Description }} <br
+        /></ng-container>
+        } @empty { Hier ist nix }
+      </td>
+      <td>
+        @for ( item of items ; track $index ) {
+        <ng-container *ngIf="item.status === KanbanState.Active"
+          >{{ item.Description }} <br
+        /></ng-container>
+        } @empty { Hier ist nix }
+      </td>
+      <td>
+        @for( item of items$| async; track item.id){
+        <ng-container *ngIf="item.status === KanbanState.InTest"
+          >{{ item.Description }} <br
+        /></ng-container>
+        } @empty { Hier ist nix }
+      </td>
+      <td>
+        @for ( item of items ; track $index ) {
+        <ng-container *ngIf="item.status === KanbanState.Closed"
+          >{{ item.Description }} <br
+        /></ng-container>
+        } @empty { Hier ist nix }
+      </td>
+    </tr>
   </table>
 </body>

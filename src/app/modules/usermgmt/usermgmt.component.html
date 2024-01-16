@@ -1,11 +1,26 @@
-@for ( name of $user.allFirstnames(); track $index ) {
-<div (click)="$user.setAsSelected($index)">
-  <button (click)="$user.delUserAt($index)">-</button>
-  <button (click)="$user.delUser($user.users()[$index])">x</button>
-  {{ name }}
-</div>
-} @for ( name of $user.allLastnames(); track $index ) {
-<div (click)="$user.setAsSelected($index)">
-  {{ name }}
-</div>
-}
+<body>
+  <h1>UserManagement</h1>
+  <table>
+    <tr>
+      <th>Vorname</th>
+      <th>Nachname</th>
+    </tr>
+    <tr>
+      <td>
+        @for ( name of $user.allFirstnames(); track $index ) {
+        <ng-container (click)="$user.setAsSelected($index)">
+          {{ name }}</ng-container
+        >
+        <br />}
+      </td>
+      <td>
+        @for ( name of $user.allLastnames(); track $index ) {
+        <ng-container (click)="$user.setAsSelected($index)">
+          {{ name }}</ng-container
+        >
+        <br />
+        }
+      </td>
+    </tr>
+  </table>
+</body>

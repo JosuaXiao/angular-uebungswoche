@@ -1,14 +1,4 @@
-import {
-  Component,
-  AfterContentInit,
-  AfterViewInit,
-  ElementRef,
-  inject,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UserService } from '../../user/user.service';
 
 @Component({
