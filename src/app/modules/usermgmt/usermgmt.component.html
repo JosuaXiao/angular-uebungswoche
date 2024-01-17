@@ -10,26 +10,6 @@
         <div>{{ name.firstname }} {{ name.lastname }}</div>
         <button (click)="$user.setUser(name.id)">Anmelden</button>
       </td>
-      <!-- <td>
-        @for ( name of $user.allFirstnames(); track $index ) {
-        <ng-container (click)="$user.setAsSelected($index)">
-          {{ name }}</ng-container
-        >
-        <br />}
-      </td>
-      <td>
-        @for ( name of $user.allLastnames(); track $index ) {
-        <ng-container (click)="$user.setAsSelected($index)">
-          {{ name }}</ng-container
-        >
-        <br />
-        }
-      </td>
-      <td>
-        @for ( name of $user.users(); track $index ) {
-        <ng-container (click)="$user.getUser($index)"> {{ name }}</ng-container>
-        <br />}
-      </td> -->
     </tr>
     }
   </table>

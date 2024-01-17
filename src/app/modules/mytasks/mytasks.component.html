@@ -8,8 +8,8 @@
       <th>Status</th>
       <th>Due until</th>
     </tr>
-    @for ( item of items ; track $index ) {
-    <tr *ngIf="item.assigned === $user.selectedUser?.firstname">
+    @for ( item of items$ | async ; track $index ) {
+    <tr *ngIf="item.assigned === userService.selectedUser?.firstname">
       <td>
         {{ item.Title }}
       </td>

@@ -1,28 +1,24 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { UserService } from '../../user/user.service';
-import { User } from '../../user/user';
-import { KanbanItem } from '../../services/KanbanItem';
 import { FlosKanbanService } from '../../services/flos-kanban.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
 import { KanbanState } from '../../services/kanban-state';
 @Component({
   selector: 'pit-mytasks',
   templateUrl: './mytasks.component.html',
   styleUrl: './mytasks.component.scss',
 })
-export class MytasksComponent {
-  readonly $user: UserService = inject(UserService);
-
-  user: User[] = [];
+export class MytasksComponent implements OnDestroy {
   items$ = this.kanbanService.get();
-
-  items: KanbanItem[] = [];
 
   KanbanState = KanbanState;
 
   #ngUnsubscribe = new Subject<void>();
 
-  constructor(private kanbanService: FlosKanbanService) {}
+  constructor(
+    private kanbanService: FlosKanbanService,
+    public userService: UserService //TODO keine services auf public
+  ) {}
 
   show(status: string, column: string): boolean {
     console.log('hallo');
@@ -31,17 +27,6 @@ export class MytasksComponent {
     } else {
       return false;
     }
-  }
-  ngOnInit(): void {
-    this.kanbanService
-      .get()
-      .pipe(takeUntil(this.#ngUnsubscribe))
-      .subscribe({
-        next: (value) => {
-          this.items = value;
-          console.log(this.items);
-        },
-      });
   }
 
   ngOnDestroy(): void {

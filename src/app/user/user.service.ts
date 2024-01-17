@@ -25,8 +25,8 @@ export class UserService {
   readonly selectedIndex = signal(-1);
 
   selectedUser: User | undefined = {
-    id: 0,
-    firstname: 'nicht',
+    id: 1,
+    firstname: 'David',
     lastname: 'angemeldet',
   };
   showedUser: string = 'nicht angemeldet';

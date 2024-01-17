@@ -9,13 +9,13 @@
     </tr>
     <tr>
       <td>
-        @for ( item of items ; track $index ) {
+        @for ( item of items$| async ; track $index ) {
         <pit-kanban-item [item]="item" *ngIf="item.status === KanbanState.New">
         </pit-kanban-item>
         } @empty { Hier ist nix }
       </td>
       <td>
-        @for ( item of items ; track $index ) {
+        @for ( item of items$| async ; track $index ) {
         <pit-kanban-item
           [item]="item"
           *ngIf="item.status === KanbanState.Active"
@@ -33,7 +33,7 @@
         } @empty { Hier ist nix }
       </td>
       <td>
-        @for ( item of items ; track $index ) {
+        @for ( item of items$| async ; track $index ) {
         <pit-kanban-item
           [item]="item"
           *ngIf="item.status === KanbanState.Closed"
