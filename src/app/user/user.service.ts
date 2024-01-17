@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,12 @@ export class UserService {
 
   readonly allLastnames = computed(() => this.users().map((u) => u.lastname));
 
+  readonly ID = computed(() => this.users().map((u) => u.id));
+
   readonly selectedIndex = signal(-1);
 
+  selectedUser: User | undefined;
+  showedUser: string = '';
   firstname: string = '';
   lastname: string = '';
 
@@ -34,6 +39,20 @@ export class UserService {
 
   constructor() {
     this.updateUsers();
+    console.log(this.selectedUser);
+  }
+
+  setUser(usrID: number) {
+    this.getUser(usrID).then((user) => {
+      this.selectedUser = user;
+      this.showedUser = user.firstname + ' ' + user.lastname;
+    });
+  }
+
+  async getUser(usrID: number) {
+    const url = `http://localhost:3000/Benutzer?id=${usrID}`;
+    const user = await lastValueFrom(this.$http.get<User[]>(url));
+    return user[0];
   }
 
   addUser(newUser: User) {

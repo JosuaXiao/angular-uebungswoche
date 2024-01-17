@@ -21,6 +21,15 @@
         <br />
         }
       </td>
+      <td>
+        @for ( name of $user.users(); track $index ) {
+        <ng-container (click)="$user.getUser($index)"> {{ name }}</ng-container>
+        <br />}
+      </td>
     </tr>
   </table>
+  <button (click)="$user.setUser(1)">testen</button>
+  <div>
+    {{ $user.showedUser }}
+  </div>
 </body>

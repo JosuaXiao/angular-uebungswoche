@@ -3,6 +3,7 @@ import { FlosKanbanService } from '../../services/flos-kanban.service';
 import { KanbanItem } from '../../services/KanbanItem';
 import { Subject, takeUntil } from 'rxjs';
 import { KanbanState } from '../../services/kanban-state';
+import { User } from '../../user/user';
 
 @Component({
   selector: 'pit-kanban',
@@ -10,6 +11,7 @@ import { KanbanState } from '../../services/kanban-state';
   styleUrl: './kanban.component.scss',
 })
 export class KanbanComponent implements OnInit, OnDestroy {
+  user: User[] = [];
   items$ = this.kanbanService.get();
 
   items: KanbanItem[] = [];
