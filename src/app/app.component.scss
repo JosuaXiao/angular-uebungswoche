@@ -1,4 +1,4 @@
-#mainbody {
+body {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   grid-template-rows: auto;
@@ -6,4 +6,9 @@
 
 router-outlet {
   height: 100%;
+}
+
+#user {
+  color: white;
+  font-weight: bold;
 }

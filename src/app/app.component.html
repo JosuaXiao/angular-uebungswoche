@@ -1,4 +1,4 @@
-<div id="mainbody">
+<body>
   <div>
     <button type="button" routerLink="kanban">Kanban</button>
     <br />
@@ -7,5 +7,5 @@
     <button type="button" routerLink="usermgmt">UserMgmt</button>
   </div>
   <div><router-outlet></router-outlet></div>
-  <div>{{ $user.showedUser }}</div>
-</div>
+  <div id="user">{{ $user.showedUser }}</div>
+</body>
