@@ -2,11 +2,15 @@
   <h1>UserManagement</h1>
   <table>
     <tr>
-      <th>Vorname</th>
-      <th>Nachname</th>
+      <th>User</th>
     </tr>
+    @for ( name of $user.users(); track $index ) {
     <tr>
       <td>
+        <div>{{ name.firstname }} {{ name.lastname }}</div>
+        <button (click)="$user.setUser(name.id)">Anmelden</button>
+      </td>
+      <!-- <td>
         @for ( name of $user.allFirstnames(); track $index ) {
         <ng-container (click)="$user.setAsSelected($index)">
           {{ name }}</ng-container
@@ -25,10 +29,11 @@
         @for ( name of $user.users(); track $index ) {
         <ng-container (click)="$user.getUser($index)"> {{ name }}</ng-container>
         <br />}
-      </td>
+      </td> -->
     </tr>
+    }
   </table>
-  <button (click)="$user.setUser(1)">testen</button>
+
   <div>
     {{ $user.showedUser }}
   </div>
