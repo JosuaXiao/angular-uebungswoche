@@ -24,8 +24,12 @@ export class UserService {
 
   readonly selectedIndex = signal(-1);
 
-  selectedUser: User | undefined;
-  showedUser: string = '';
+  selectedUser: User | undefined = {
+    id: 0,
+    firstname: 'nicht',
+    lastname: 'angemeldet',
+  };
+  showedUser: string = 'nicht angemeldet';
   firstname: string = '';
   lastname: string = '';
 
