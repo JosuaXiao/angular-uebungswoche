@@ -1,84 +1,141 @@
-import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
+
+interface State<T> {
+  isLoading: boolean;
+  data: T[];
+  currentId?: number;
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export abstract class FlosDataService<T extends { id: number }>
-  implements OnDestroy
-{
-  #cache = new BehaviorSubject<T[]>([]);
+export abstract class FlosDataService<T extends { id: number }> {
+  #store = new BehaviorSubject<State<T>>({
+    isLoading: false,
+    data: [],
+  });
 
   #httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  #ngUnsubscribe = new Subject<void>();
+  constructor(private httpClient: HttpClient, private baseUrl: string) {}
 
-  constructor(private httpClient: HttpClient, private baseUrl: string) {
-    this.refresh();
-  }
+  // #region Actions
 
-  ngOnDestroy(): void {
-    this.#ngUnsubscribe.next();
-    this.#ngUnsubscribe.complete();
-  }
+  addAction(item: T) {
+    this.#store.next({
+      ...this.#getCurrentState(),
+      isLoading: true,
+    });
 
-  add(item: T) {
-    this.httpClient
-      .post<T>(this.baseUrl, item, this.#httpOptions)
-      .pipe(takeUntil(this.#ngUnsubscribe))
-      .subscribe({
-        next: (value) => {
-          this.#cache.next([...this.#cache.value, value]);
-        },
+    lastValueFrom(
+      this.httpClient.post<T>(this.baseUrl, item, this.#httpOptions)
+    ).then((value) => {
+      const state = this.#getCurrentState();
+      this.#store.next({
+        ...state,
+        data: [...state.data, value],
+        isLoading: false,
       });
+    });
   }
 
-  update(item: T) {
-    this.httpClient
-      .put<T>(this.baseUrl, item, this.#httpOptions)
-      .pipe(takeUntil(this.#ngUnsubscribe))
-      .subscribe({
-        next: (value) => {
-          const index = this.#cache.value.findIndex(
-            (searchItem) => searchItem.id === item.id
-          );
-          const newArr = [...this.#cache.value];
-          newArr[index] = value ?? item;
-          this.#cache.next(newArr);
-        },
+  updateAction(item: T) {
+    this.#store.next({
+      ...this.#getCurrentState(),
+      isLoading: true,
+    });
+
+    lastValueFrom(
+      this.httpClient.put<T>(this.baseUrl, item, this.#httpOptions)
+    ).then((value) => {
+      const state = this.#getCurrentState();
+      const index = state.data.findIndex(
+        (searchItem) => searchItem.id === item.id
+      );
+      this.#store.next({
+        ...state,
+        data: Object.assign([], state.data, { [index]: value ?? item }),
+        isLoading: false,
       });
+    });
   }
 
-  delete(id: number) {
+  deleteAction(id: number) {
+    this.#store.next({
+      ...this.#getCurrentState(),
+      isLoading: true,
+    });
+
     const url = `${this.baseUrl}/${id}`;
-    this.httpClient
-      .delete<T>(url, this.#httpOptions)
-      .pipe(takeUntil(this.#ngUnsubscribe))
-      .subscribe({
-        next: () => {
-          this.#cache.next([
-            ...this.#cache.value.filter((item) => item.id !== id),
-          ]);
-        },
-      });
+    lastValueFrom(this.httpClient.delete<T>(url, this.#httpOptions)).then(
+      () => {
+        const state = this.#getCurrentState();
+        this.#store.next({
+          ...state,
+          data: state.data.filter((item) => item.id !== id),
+          isLoading: false,
+          currentId: state.currentId === id ? undefined : state.currentId,
+        });
+      }
+    );
   }
 
-  refresh() {
-    this.httpClient
-      .get<T[]>(this.baseUrl)
-      .pipe(takeUntil(this.#ngUnsubscribe))
-      .subscribe({
-        next: (value) => {
-          this.#cache.next(value);
-        },
+  loadAction() {
+    this.#store.next({
+      ...this.#getCurrentState(),
+      isLoading: true,
+    });
+
+    lastValueFrom(this.httpClient.get<T[]>(this.baseUrl)).then((data) => {
+      const state = this.#getCurrentState();
+      this.#store.next({
+        ...state,
+        data,
+        isLoading: false,
       });
+    });
   }
 
-  get() {
-    return this.#cache.asObservable();
+  setCurrentAction(currentId?: number) {
+    const state = this.#getCurrentState();
+    this.#store.next({
+      ...state,
+      currentId,
+    });
+  }
+
+  // #endregion Actions
+
+  // #region Selectors
+
+  selectState() {
+    return this.#store.asObservable();
+  }
+
+  selectData() {
+    return this.#store.pipe(map((state) => state.data));
+  }
+
+  selectCurrent() {
+    return this.#store.pipe(
+      map((state) =>
+        state.data.find((dataItem) => dataItem.id === state.currentId)
+      )
+    );
+  }
+
+  selectIsLoading() {
+    return this.#store.pipe(map((state) => state.isLoading));
+  }
+
+  // #endregion Selectors
+
+  #getCurrentState() {
+    return this.#store.value;
   }
 }

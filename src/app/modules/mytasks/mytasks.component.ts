@@ -1,15 +1,17 @@
 import { Component, OnDestroy } from '@angular/core';
-import { UserService } from '../../user/user.service';
 import { FlosKanbanService } from '../../services/flos-kanban.service';
 import { Subject } from 'rxjs';
 import { KanbanState } from '../../services/kanban-state';
+import { FlosUserService } from '../../services/flos-user.service';
 @Component({
   selector: 'pit-mytasks',
   templateUrl: './mytasks.component.html',
   styleUrl: './mytasks.component.scss',
 })
 export class MytasksComponent implements OnDestroy {
-  items$ = this.kanbanService.get();
+  tasks$ = this.kanbanService.selectData();
+
+  loggedInUser$ = this.userService.selectLoggedInUser();
 
   KanbanState = KanbanState;
 
@@ -17,7 +19,7 @@ export class MytasksComponent implements OnDestroy {
 
   constructor(
     private kanbanService: FlosKanbanService,
-    public userService: UserService //TODO keine services auf public
+    private userService: FlosUserService
   ) {}
 
   show(status: string, column: string): boolean {

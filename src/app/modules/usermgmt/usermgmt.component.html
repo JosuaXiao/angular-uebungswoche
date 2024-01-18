@@ -4,11 +4,11 @@
     <tr>
       <th>User</th>
     </tr>
-    @for ( name of $user.users(); track $index ) {
+    @for ( user of $users | async; track $index ) {
     <tr>
       <td>
-        <div>{{ name.firstname }} {{ name.lastname }}</div>
-        <button (click)="$user.setUser(name.id)">Anmelden</button>
+        <div>{{ user.firstname }} {{ user.lastname }}</div>
+        <button (click)="logIn(user)">Anmelden</button>
       </td>
     </tr>
     }

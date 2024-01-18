@@ -8,21 +8,21 @@
       <th>Status</th>
       <th>Due until</th>
     </tr>
-    @for ( item of items$ | async ; track $index ) {
-    <tr *ngIf="item.assigned === userService.selectedUser?.firstname">
+    @for ( task of tasks$ | async ; track $index ) {
+    <tr *ngIf="task.assigned === (loggedInUser$ | async)?.firstname">
       <td>
-        {{ item.Title }}
+        {{ task.Title }}
       </td>
-      <td>{{ item.Description }}</td>
-      <td>{{ item.prio }}</td>
-      <td [ngSwitch]="item.status">
+      <td>{{ task.Description }}</td>
+      <td>{{ task.prio }}</td>
+      <td [ngSwitch]="task.status">
         <ng-container *ngSwitchCase="KanbanState.Active">Active</ng-container>
         <ng-container *ngSwitchCase="KanbanState.Closed">Close</ng-container>
         <ng-container *ngSwitchCase="KanbanState.InTest">InTest</ng-container>
         <ng-container *ngSwitchCase="KanbanState.New">New</ng-container>
         <ng-container *ngSwitchDefault></ng-container>
       </td>
-      <td>{{ item.tobeDone }}</td>
+      <td>{{ task.tobeDone }}</td>
     </tr>
     } @empty { Hier ist nix }
   </table>
