@@ -15,10 +15,10 @@ export class UsermgmtComponent implements OnInit {
     this.userService.loadAction();
   }
 
-  @HostListener('click')
-  triggerEvent() {
-    console.log('click works');
-  }
+  // @HostListener('click')
+  // triggerEvent() {
+  //   console.log('click works');
+  // }
 
   logIn(user: User) {
     this.userService.logInAction(user);
