@@ -20,13 +20,13 @@ export class KanbanComponent implements OnInit, OnDestroy {
   #ngUnsubscribe = new Subject<void>();
 
   constructor(private kanbanService: FlosKanbanService) {}
+  dialog: boolean = true; //this.selected$ === undefined;
 
   ngOnInit(): void {
     this.kanbanService.loadAction();
   }
 
   show(status: string, column: string): boolean {
-    console.log('hallo');
     if (status === column) {
       return true;
     } else {

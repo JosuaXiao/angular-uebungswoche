@@ -28,7 +28,6 @@ export class MytasksComponent implements OnInit, OnDestroy {
   }
 
   show(status: string, column: string): boolean {
-    console.log('hallo');
     if (status === column) {
       return true;
     } else {
