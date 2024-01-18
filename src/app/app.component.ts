@@ -6,7 +6,7 @@ import { FlosUserService } from './services/flos-user.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  loggedInUser$ = this.userService.selectLoggedInUser();
+  loggedInUser$ = this.userService.selector_loggedIn();
 
   constructor(private userService: FlosUserService) {}
 }

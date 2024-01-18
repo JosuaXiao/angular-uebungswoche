@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 interface State<T> {
   isLoading: boolean;
   data: T[];
-  currentId?: number;
+  selectedId?: number;
 }
 
 @Injectable({
@@ -26,7 +26,7 @@ export abstract class FlosDataService<T extends { id: number }> {
 
   // #region Actions
 
-  addAction(item: T) {
+  action_add(item: T) {
     this.#store.next({
       ...this.#getCurrentState(),
       isLoading: true,
@@ -44,7 +44,7 @@ export abstract class FlosDataService<T extends { id: number }> {
     });
   }
 
-  updateAction(item: T) {
+  action_update(item: T) {
     this.#store.next({
       ...this.#getCurrentState(),
       isLoading: true,
@@ -65,7 +65,7 @@ export abstract class FlosDataService<T extends { id: number }> {
     });
   }
 
-  deleteAction(id: number) {
+  action_delete(id: number) {
     this.#store.next({
       ...this.#getCurrentState(),
       isLoading: true,
@@ -79,13 +79,13 @@ export abstract class FlosDataService<T extends { id: number }> {
           ...state,
           data: state.data.filter((item) => item.id !== id),
           isLoading: false,
-          currentId: state.currentId === id ? undefined : state.currentId,
+          selectedId: state.selectedId === id ? undefined : state.selectedId,
         });
       }
     );
   }
 
-  loadAction() {
+  action_load() {
     this.#store.next({
       ...this.#getCurrentState(),
       isLoading: true,
@@ -101,11 +101,11 @@ export abstract class FlosDataService<T extends { id: number }> {
     });
   }
 
-  setCurrentAction(currentId?: number) {
+  action_select(currentId?: number) {
     const state = this.#getCurrentState();
     this.#store.next({
       ...state,
-      currentId,
+      selectedId: currentId,
     });
   }
 
@@ -113,23 +113,23 @@ export abstract class FlosDataService<T extends { id: number }> {
 
   // #region Selectors
 
-  selectState() {
+  selector_state() {
     return this.#store.asObservable();
   }
 
-  selectData() {
+  selector_data() {
     return this.#store.pipe(map((state) => state.data));
   }
 
-  selectCurrent() {
+  selector_selected() {
     return this.#store.pipe(
       map((state) =>
-        state.data.find((dataItem) => dataItem.id === state.currentId)
+        state.data.find((dataItem) => dataItem.id === state.selectedId)
       )
     );
   }
 
-  selectIsLoading() {
+  selector_isLoading() {
     return this.#store.pipe(map((state) => state.isLoading));
   }
 

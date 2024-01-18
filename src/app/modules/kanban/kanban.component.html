@@ -11,7 +11,11 @@
     <tr>
       <td>
         @for ( item of kanbanItems$| async ; track $index ) {
-        <pit-kanban-item [item]="item" *ngIf="item.status === KanbanState.New">
+        <pit-kanban-item
+          [item]="item"
+          *ngIf="item.status === KanbanState.New"
+          (click)="select(item.id)"
+        >
         </pit-kanban-item>
         } @empty { Hier ist nix }
       </td>
@@ -20,6 +24,7 @@
         <pit-kanban-item
           [item]="item"
           *ngIf="item.status === KanbanState.Active"
+          (click)="select(item.id)"
         >
         </pit-kanban-item>
         } @empty { Hier ist nix }
@@ -29,6 +34,7 @@
         <pit-kanban-item
           [item]="item"
           *ngIf="item.status === KanbanState.InTest"
+          (click)="select(item.id)"
         >
         </pit-kanban-item>
         } @empty { Hier ist nix }
@@ -38,6 +44,7 @@
         <pit-kanban-item
           [item]="item"
           *ngIf="item.status === KanbanState.Closed"
+          (click)="select(item.id)"
         >
         </pit-kanban-item>
         } @empty { Hier ist nix }

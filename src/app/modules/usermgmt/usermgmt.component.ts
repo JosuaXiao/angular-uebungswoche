@@ -7,12 +7,12 @@ import { User } from '../../user/user';
   styleUrl: './usermgmt.component.scss',
 })
 export class UsermgmtComponent implements OnInit {
-  $users = this.userService.selectData();
+  $users = this.userService.selector_data();
 
   constructor(private userService: FlosUserService) {}
 
   ngOnInit(): void {
-    this.userService.loadAction();
+    this.userService.action_load();
   }
 
   // @HostListener('click')
@@ -21,6 +21,6 @@ export class UsermgmtComponent implements OnInit {
   // }
 
   logIn(user: User) {
-    this.userService.logInAction(user);
+    this.userService.action_logIn(user);
   }
 }

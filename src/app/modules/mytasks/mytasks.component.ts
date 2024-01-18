@@ -9,9 +9,9 @@ import { FlosUserService } from '../../services/flos-user.service';
   styleUrl: './mytasks.component.scss',
 })
 export class MytasksComponent implements OnInit, OnDestroy {
-  tasks$ = this.kanbanService.selectData();
+  tasks$ = this.kanbanService.selector_data();
 
-  loggedInUser$ = this.userService.selectLoggedInUser();
+  loggedInUser$ = this.userService.selector_loggedIn();
 
   KanbanState = KanbanState;
 
@@ -23,7 +23,7 @@ export class MytasksComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.kanbanService.loadAction();
+    this.kanbanService.action_load();
     // this.tasks$.subscribe((tasks) => console.log(tasks));
   }
 

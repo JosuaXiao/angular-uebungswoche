@@ -14,11 +14,11 @@ export class FlosUserService extends FlosDataService<User> {
     super(http, 'http://localhost:3000/Benutzer');
   }
 
-  logInAction(user?: User) {
+  action_logIn(user?: User) {
     this.#loggedInUser.next(user);
   }
 
-  selectLoggedInUser() {
+  selector_loggedIn() {
     return this.#loggedInUser.asObservable();
   }
 }

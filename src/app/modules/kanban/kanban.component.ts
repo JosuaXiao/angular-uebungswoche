@@ -9,21 +9,25 @@ import { KanbanState } from '../../services/kanban-state';
   styleUrl: './kanban.component.scss',
 })
 export class KanbanComponent implements OnInit, OnDestroy {
-  kanbanItems$ = this.kanbanService.selectData();
+  kanbanItems$ = this.kanbanService.selector_data();
 
-  isLoading$ = this.kanbanService.selectIsLoading();
+  isLoading$ = this.kanbanService.selector_isLoading();
 
-  selected$ = this.kanbanService.selectCurrent();
+  selected$ = this.kanbanService.selector_selected();
 
   KanbanState = KanbanState;
 
   #ngUnsubscribe = new Subject<void>();
 
   constructor(private kanbanService: FlosKanbanService) {}
-  dialog: boolean = true; //this.selected$ === undefined;
+
+  dialog: boolean = false; //this.selected$ === undefined;
 
   ngOnInit(): void {
-    this.kanbanService.loadAction();
+    this.kanbanService.action_load();
+
+    const state$ = this.kanbanService.selector_state();
+    state$.subscribe((state) => console.log(state));
   }
 
   show(status: string, column: string): boolean {
@@ -32,6 +36,11 @@ export class KanbanComponent implements OnInit, OnDestroy {
     } else {
       return false;
     }
+  }
+
+  select(id: number) {
+    this.kanbanService.action_select(id);
+    this.dialog = true;
   }
 
   ngOnDestroy(): void {
