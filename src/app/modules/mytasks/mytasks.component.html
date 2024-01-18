@@ -22,7 +22,7 @@
         <ng-container *ngSwitchCase="KanbanState.New">New</ng-container>
         <ng-container *ngSwitchDefault></ng-container>
       </td>
-      <td>{{ task.tobeDone }}</td>
+      <td>{{ task.tobeDone | date }}</td>
     </tr>
     } @empty { Hier ist nix }
   </table>
