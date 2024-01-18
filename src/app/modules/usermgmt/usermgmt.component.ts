@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FlosUserService } from '../../services/flos-user.service';
 import { User } from '../../user/user';
 @Component({

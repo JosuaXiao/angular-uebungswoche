@@ -31,7 +31,7 @@
       "id": 1,
       "Title": "Implement backend API",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "31/3/2023",
+      "tobeDone": "2023-07-19T14:11:03Z",
       "assigned": "David",
       "prio": "low",
       "status": 2
@@ -40,7 +40,7 @@
       "id": 2,
       "Title": "Write unit tests",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "14/10/2023",
+      "tobeDone": "2023-04-10T04:56:17Z",
       "assigned": "David",
       "prio": "high",
       "status": 0
@@ -49,7 +49,7 @@
       "id": 3,
       "Title": "Refactor code for performance",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "14/11/2023",
+      "tobeDone": "2023-04-21T01:58:46Z",
       "assigned": "David",
       "prio": "medium",
       "status": 3
@@ -58,7 +58,7 @@
       "id": 4,
       "Title": "Design UI for homepage",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "19/4/2023",
+      "tobeDone": "2023-10-11T22:55:42Z",
       "assigned": "Yunfan",
       "prio": "low",
       "status": 1
@@ -67,7 +67,7 @@
       "id": 5,
       "Title": "Develop dashboard user interface",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "8/4/2023",
+      "tobeDone": "2023-04-22T01:16:33Z",
       "assigned": "Yunfan",
       "prio": "medium",
       "status": 2
@@ -76,7 +76,7 @@
       "id": 6,
       "Title": "Fix bug in authentication module",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "3/1/2024",
+      "tobeDone": "2023-09-15T01:23:57Z",
       "assigned": "Yunfan",
       "prio": "low",
       "status": 3
@@ -85,7 +85,7 @@
       "id": 7,
       "Title": "Optimize database queries for user authentication",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "17/5/2023",
+      "tobeDone": "2023-12-05T11:48:26Z",
       "assigned": "Florian",
       "prio": "high",
       "status": 2
@@ -94,7 +94,7 @@
       "id": 8,
       "Title": "Implement real-time notifications",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "5/7/2023",
+      "tobeDone": "2023-11-27T20:26:20Z",
       "assigned": "Florian",
       "prio": "low",
       "status": 0
@@ -103,7 +103,7 @@
       "id": 9,
       "Title": "Conduct performance tests for API",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "25/8/2023",
+      "tobeDone": "2023-11-14T19:54:24Z",
       "assigned": "Florian",
       "prio": "high",
       "status": 2
@@ -112,7 +112,7 @@
       "id": 10,
       "Title": "Integrate payment gateway for e-commerce",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "29/7/2023",
+      "tobeDone": "2023-06-06T16:45:41Z",
       "assigned": "Buben",
       "prio": "low",
       "status": 1
@@ -121,7 +121,7 @@
       "id": 11,
       "Title": "Write unit tests",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "13/4/2023",
+      "tobeDone": "2023-06-08T04:28:54Z",
       "assigned": "Buben",
       "prio": "medium",
       "status": 0
@@ -130,7 +130,7 @@
       "id": 12,
       "Title": "Develop user profile management features",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "2/5/2023",
+      "tobeDone": "2023-06-01T21:47:57Z",
       "assigned": "Buben",
       "prio": "high",
       "status": 0
@@ -139,7 +139,7 @@
       "id": 13,
       "Title": "Design and implement search algorithm",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "14/9/2023",
+      "tobeDone": "2023-09-04T21:41:57Z",
       "assigned": "Fluben",
       "prio": "medium",
       "status": 1
@@ -148,7 +148,7 @@
       "id": 14,
       "Title": "Update documentation",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "20/8/2023",
+      "tobeDone": "2023-09-02T19:39:18Z",
       "assigned": "Fluben",
       "prio": "medium",
       "status": 2
@@ -157,7 +157,7 @@
       "id": 15,
       "Title": "Perform security checks and enhancements",
       "Description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.",
-      "2beDone": "18/3/2023",
+      "tobeDone": "2023-03-30T22:52:35Z",
       "assigned": "Fluben",
       "prio": "high",
       "status": 1

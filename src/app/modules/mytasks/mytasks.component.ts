@@ -24,6 +24,7 @@ export class MytasksComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.kanbanService.loadAction();
+    // this.tasks$.subscribe((tasks) => console.log(tasks));
   }
 
   show(status: string, column: string): boolean {
