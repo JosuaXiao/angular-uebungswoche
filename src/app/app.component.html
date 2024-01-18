@@ -1,5 +1,6 @@
 <body>
   <div>
+    <h1>.</h1>
     <button type="button" routerLink="kanban">Kanban</button>
     <br />
     <button type="button" routerLink="mytasks">My Tasks</button>
@@ -8,6 +9,10 @@
   </div>
   <div><router-outlet></router-outlet></div>
   <div id="user">
+    <h1>.</h1>
+    <ng-container *ngIf="(loggedInUser$ | async)?.firstname === null"
+      >Nicht Angemeldet</ng-container
+    >
     {{ (loggedInUser$ | async)?.firstname }}
     {{ (loggedInUser$ | async)?.lastname }}
   </div>
