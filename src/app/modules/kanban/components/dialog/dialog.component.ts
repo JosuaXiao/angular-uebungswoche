@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FlosKanbanService } from '../../../../services/flos-kanban.service';
-import { KanbanItem } from '../../../../services/KanbanItem';
+import { Component, OnInit } from "@angular/core";
+
+import { FlosKanbanService } from "../../../../services/flos-kanban.service";
+import { KanbanItem } from "../../../../services/KanbanItem";
 
 @Component({
   selector: 'pit-dialog',

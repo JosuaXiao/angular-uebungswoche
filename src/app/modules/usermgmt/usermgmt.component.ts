@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FlosUserService } from '../../services/flos-user.service';
-import { User } from '../../user/user';
+import { Component, OnInit } from "@angular/core";
+
+import { FlosUserService } from "../../services/flos-user.service";
+import { User } from "../../user/user";
+
 @Component({
   selector: 'pit-usermgmt',
   templateUrl: './usermgmt.component.html',

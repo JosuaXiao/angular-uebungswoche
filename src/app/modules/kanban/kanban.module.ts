@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { KanbanRoutingModule } from './kanban-routing.module';
-import { KanbanComponent } from './kanban.component';
-import { KanbanItemComponent } from './components/kanban-item/kanban-item.component';
-import { DialogComponent } from './components/dialog/dialog.component';
-
+import { DialogComponent } from "./components/dialog/dialog.component";
+import { KanbanItemComponent } from "./components/kanban-item/kanban-item.component";
+import { KanbanRoutingModule } from "./kanban-routing.module";
+import { KanbanComponent } from "./kanban.component";
 
 @NgModule({
   declarations: [

@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { FlosUserService } from './flos-user.service';
+import { FlosUserService } from "./flos-user.service";
 
 describe('FlosUserService', () => {
   let service: FlosUserService;

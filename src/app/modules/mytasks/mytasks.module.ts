@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { MytasksRoutingModule } from './mytasks-routing.module';
-import { MytasksComponent } from './mytasks.component';
-
+import { MytasksRoutingModule } from "./mytasks-routing.module";
+import { MytasksComponent } from "./mytasks.component";
 
 @NgModule({
   declarations: [

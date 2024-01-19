@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { FlosKanbanService } from './flos-kanban.service';
+import { FlosKanbanService } from "./flos-kanban.service";
 
 describe('FlosKanbanService', () => {
   let service: FlosKanbanService;

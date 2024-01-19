@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { FlosDataService } from './flos-data.service';
-import { KanbanItem } from './KanbanItem';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+
+import { FlosDataService } from "./flos-data.service";
+import { KanbanItem } from "./KanbanItem";
 
 @Injectable({
   providedIn: 'root',

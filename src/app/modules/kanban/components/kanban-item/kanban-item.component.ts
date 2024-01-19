@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { KanbanItem } from '../../../../services/KanbanItem';
+import { Component, Input } from "@angular/core";
+
+import { KanbanItem } from "../../../../services/KanbanItem";
 
 @Component({
   selector: 'pit-kanban-item',

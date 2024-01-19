@@ -1,7 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FlosKanbanService } from '../../services/flos-kanban.service';
-import { Subject } from 'rxjs';
-import { KanbanState } from '../../services/kanban-state';
+import { Subject } from "rxjs";
+
+import { Component, OnDestroy, OnInit } from "@angular/core";
+
+import { FlosKanbanService } from "../../services/flos-kanban.service";
+import { KanbanState } from "../../services/kanban-state";
 
 @Component({
   selector: 'pit-kanban',

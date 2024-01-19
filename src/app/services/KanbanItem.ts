@@ -1,4 +1,4 @@
-import { KanbanState } from './kanban-state';
+import { KanbanState } from "./kanban-state";
 
 export interface KanbanItem {
   id: number;

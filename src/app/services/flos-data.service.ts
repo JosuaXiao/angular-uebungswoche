@@ -1,7 +1,7 @@
-import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, map } from "rxjs";
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 interface State<T> {
   isLoading: boolean;

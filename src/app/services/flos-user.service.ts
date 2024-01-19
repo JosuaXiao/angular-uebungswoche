@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
-import { FlosDataService } from './flos-data.service';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../user/user';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from "rxjs";
+
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+
+import { User } from "../user/user";
+import { FlosDataService } from "./flos-data.service";
 
 @Injectable({
   providedIn: 'root',

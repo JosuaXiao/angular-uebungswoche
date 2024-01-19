@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { UsermgmtRoutingModule } from './usermgmt-routing.module';
-import { UsermgmtComponent } from './usermgmt.component';
-
+import { UsermgmtRoutingModule } from "./usermgmt-routing.module";
+import { UsermgmtComponent } from "./usermgmt.component";
 
 @NgModule({
   declarations: [
