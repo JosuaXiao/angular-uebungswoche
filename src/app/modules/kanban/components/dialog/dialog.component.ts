@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FlosKanbanService } from '../../../../services/flos-kanban.service';
+import { KanbanItem } from '../../../../services/KanbanItem';
 
 @Component({
   selector: 'pit-dialog',
@@ -11,8 +12,11 @@ export class DialogComponent implements OnInit {
   selected$ = this.kanbanService.selector_selected();
   constructor(private kanbanService: FlosKanbanService) {}
 
+  item: KanbanItem | undefined;
+
   ngOnInit(): void {
     this.selected$.subscribe((selected) => console.log(selected));
+    this.selected$.subscribe((selected) => (this.item = selected));
   }
 
   selectone(id: number) {

@@ -3,10 +3,24 @@
     <button (click)="selectone(2)">x</button>
     <br />
     <span>Titel</span> <br />
-    <input type="text" id="title" size="50" />
+    <textarea
+      id="title"
+      rows="1"
+      cols="50"
+      autocapitalize="off"
+      spellcheck="false"
+      >{{ item?.Title }}</textarea
+    >
     <br />
     <span>Beschreibung</span> <br />
-    <textarea id="description" rows="4" cols="50"> </textarea>
+    <textarea
+      id="description"
+      rows="4"
+      cols="50"
+      autocapitalize="off"
+      spellcheck="false"
+      >{{ item?.Description }}</textarea
+    >
     <br />
     <span>Status:</span>
     <br />
