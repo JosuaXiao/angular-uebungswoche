@@ -2,12 +2,28 @@
   <dialog open>
     <button (click)="selectone(2)">x</button>
     <br />
-    <span>Titel</span><input type="text" id="title" />
+    <span>Titel</span> <br />
+    <input type="text" id="title" size="50" />
     <br />
-    <span>Beschreibung</span><input type="text" id="description" />
-    <input type="" />
+    <span>Beschreibung</span> <br />
+    <textarea id="description" rows="4" cols="50"> </textarea>
+    <br />
+    <span>Status:</span>
+    <br />
     <select name="assigned" id="bearbeiter">
-      <option value=""></option>
+      <option value="New">New</option>
+      <option value="Active">Active</option>
+      <option value="InTest">In Test</option>
+      <option value="Closed">Closed</option>
+    </select>
+    <br />
+    <span>Status:</span>
+    <br />
+    <select name="Priorität" id="prio">
+      Priorität
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
     </select>
   </dialog>
 </body>
