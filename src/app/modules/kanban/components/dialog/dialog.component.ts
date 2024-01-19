@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Subject, takeUntil } from "rxjs";
+
+import { Component, OnDestroy, OnInit } from "@angular/core";
 
 import { FlosKanbanService } from "../../../../services/flos-kanban.service";
 import { KanbanItem } from "../../../../services/KanbanItem";
@@ -8,16 +10,26 @@ import { KanbanItem } from "../../../../services/KanbanItem";
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.scss',
 })
-export class DialogComponent implements OnInit {
+export class DialogComponent implements OnInit, OnDestroy {
   kanbanItems$ = this.kanbanService.selector_data();
   selected$ = this.kanbanService.selector_selected();
   constructor(private kanbanService: FlosKanbanService) {}
 
   item: KanbanItem | undefined;
+  #ngUnsubscribe = new Subject<void>();
 
   ngOnInit(): void {
-    this.selected$.subscribe((selected) => console.log(selected));
-    this.selected$.subscribe((selected) => (this.item = selected));
+    this.selected$
+      .pipe(takeUntil(this.#ngUnsubscribe))
+      .subscribe((selected) => {
+        console.log(selected);
+        this.item = selected;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.#ngUnsubscribe.next();
+    this.#ngUnsubscribe.complete();
   }
 
   selectone(id: number) {
